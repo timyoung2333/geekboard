@@ -104,7 +104,7 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return createDefaultState();
       const parsed = JSON.parse(raw);
-      if (!parsed.projects || !parsed.projects.length) return createDefaultState();
+      if (!parsed.projects) parsed.projects = [];
       // Migrate: add trash if not exists
       if (!parsed.trash) parsed.trash = [];
       // Migrate: add groups if not exists
@@ -120,15 +120,12 @@
   }
 
   function createDefaultState() {
-    const projectId = genId();
     return {
       groups: [],
-      projects: [
-        { id: projectId, name: 'Default Project', createdAt: Date.now() }
-      ],
+      projects: [],
       tasks: [],
       trash: [],
-      activeProjectId: projectId
+      activeProjectId: null
     };
   }
 
@@ -1296,9 +1293,25 @@
   function renderMain() {
     const activeProject = state.projects.find(p => p.id === state.activeProjectId);
     if (!activeProject) {
-      activeProjectNameEl.textContent = 'No Project';
+      activeProjectNameEl.textContent = 'No Project Selected';
       projectStatsEl.textContent = '';
-      Object.values(columnLists).forEach(listEl => listEl.innerHTML = '');
+      completionLabel.textContent = '0%';
+      completionBar.style.transform = 'scaleX(0)';
+      taskCountLabel.textContent = '0';
+      Object.values(columnLists).forEach(listEl => {
+        listEl.innerHTML = '';
+      });
+      Object.values(columnCounts).forEach(countEl => {
+        countEl.textContent = '0';
+      });
+      // Show empty state hint in backlog column
+      if (state.projects.length === 0) {
+        const emptyHint = document.createElement('div');
+        emptyHint.style.cssText = 'text-align: center; padding: 40px 20px; color: var(--text-dim); font-size: 12px;';
+        emptyHint.innerHTML = '📋 No projects yet<br><br><span style="color: var(--accent); cursor: pointer;" id="emptyCreateBtn">+ Create your first project</span><br><span style="font-size: 10px; opacity: 0.6;">or press <kbd style="background:#1e293b;padding:2px 6px;border-radius:4px;">P</kbd></span>';
+        columnLists.backlog.appendChild(emptyHint);
+        document.getElementById('emptyCreateBtn').addEventListener('click', openNewProjectModal);
+      }
       return;
     }
     activeProjectNameEl.textContent = activeProject.name;
@@ -1613,15 +1626,12 @@
     // Remove the project
     state.projects = state.projects.filter(p => p.id !== projectId);
     
-    // If we deleted the active project, switch to another or create default
+    // If we deleted the active project, switch to another
     if (state.activeProjectId === projectId) {
       if (state.projects.length > 0) {
         state.activeProjectId = state.projects[0].id;
       } else {
-        // Create a new default project
-        const newId = genId();
-        state.projects.push({ id: newId, name: 'Default Project', createdAt: Date.now() });
-        state.activeProjectId = newId;
+        state.activeProjectId = null;
       }
     }
     

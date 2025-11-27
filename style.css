@@ -1225,6 +1225,62 @@ html.theme-light .trash-item-days {
   overflow: hidden;
 }
 
+/* Empty state overlay */
+.empty-state {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  gap: 12px;
+}
+
+.empty-state.hidden {
+  display: none;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.empty-state-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.empty-state-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.empty-state-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+.empty-state-hint {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.empty-state-hint kbd {
+  background: #1e293b;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
 .column {
   display: flex;
   flex-direction: column;

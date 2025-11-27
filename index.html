@@ -71,6 +71,14 @@
       </header>
 
       <section class="kanban" id="kanbanView">
+        <!-- Empty state overlay -->
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-state-icon">📋</div>
+          <div class="empty-state-title">No projects yet</div>
+          <div class="empty-state-desc">Create your first project to start managing tasks</div>
+          <button class="btn btn-primary empty-state-btn" id="emptyStateBtn">+ Create Project</button>
+          <div class="empty-state-hint">or press <kbd>P</kbd></div>
+        </div>
         <div class="column" data-status="backlog">
           <div class="column-header">
             <div class="column-title">

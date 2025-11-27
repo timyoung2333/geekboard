@@ -1291,27 +1291,32 @@
   }
 
   function renderMain() {
+    const emptyStateEl = document.getElementById('emptyState');
     const activeProject = state.projects.find(p => p.id === state.activeProjectId);
-    if (!activeProject) {
-      activeProjectNameEl.textContent = 'No Project Selected';
+    
+    // Show/hide empty state
+    if (state.projects.length === 0) {
+      emptyStateEl.classList.remove('hidden');
+      activeProjectNameEl.textContent = 'Welcome to GeekBoard';
       projectStatsEl.textContent = '';
       completionLabel.textContent = '0%';
       completionBar.style.transform = 'scaleX(0)';
       taskCountLabel.textContent = '0';
-      Object.values(columnLists).forEach(listEl => {
-        listEl.innerHTML = '';
-      });
-      Object.values(columnCounts).forEach(countEl => {
-        countEl.textContent = '0';
-      });
-      // Show empty state hint in backlog column
-      if (state.projects.length === 0) {
-        const emptyHint = document.createElement('div');
-        emptyHint.style.cssText = 'text-align: center; padding: 40px 20px; color: var(--text-dim); font-size: 12px;';
-        emptyHint.innerHTML = '📋 No projects yet<br><br><span style="color: var(--accent); cursor: pointer;" id="emptyCreateBtn">+ Create your first project</span><br><span style="font-size: 10px; opacity: 0.6;">or press <kbd style="background:#1e293b;padding:2px 6px;border-radius:4px;">P</kbd></span>';
-        columnLists.backlog.appendChild(emptyHint);
-        document.getElementById('emptyCreateBtn').addEventListener('click', openNewProjectModal);
-      }
+      Object.values(columnLists).forEach(listEl => listEl.innerHTML = '');
+      Object.values(columnCounts).forEach(countEl => countEl.textContent = '0');
+      return;
+    } else {
+      emptyStateEl.classList.add('hidden');
+    }
+    
+    if (!activeProject) {
+      activeProjectNameEl.textContent = 'Select a Project';
+      projectStatsEl.textContent = '';
+      completionLabel.textContent = '0%';
+      completionBar.style.transform = 'scaleX(0)';
+      taskCountLabel.textContent = '0';
+      Object.values(columnLists).forEach(listEl => listEl.innerHTML = '');
+      Object.values(columnCounts).forEach(countEl => countEl.textContent = '0');
       return;
     }
     activeProjectNameEl.textContent = activeProject.name;
@@ -1829,6 +1834,9 @@
   newGroupNameInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') saveNewGroup();
   });
+
+  // Empty state button
+  document.getElementById('emptyStateBtn').addEventListener('click', openNewProjectModal);
 
   // Calendar view toggle
   calendarBtn.addEventListener('click', () => {

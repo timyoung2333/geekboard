@@ -2,9 +2,9 @@
 
 > A minimalist, local-first project management tool for geeks.
 
-[![Deploy status](https://github.com/timyoung2333/geekboard/actions/workflows/static.yml/badge.svg)](https://geekboard.app)
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fgeekboard.app&label=geekboard.app)](https://geekboard.app)
 
-![GeekBoard Screenshot](assets/screenshot.png)
+![GeekBoard Screenshot](assets/screenshot.jpg)
 
 ## Why GeekBoard?
 

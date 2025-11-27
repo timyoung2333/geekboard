@@ -694,6 +694,67 @@
       color: var(--accent);
     }
 
+    .privacy-hint {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 9px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    .privacy-hint a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.12s;
+    }
+
+    .privacy-hint a:hover {
+      color: var(--accent);
+    }
+
+    .privacy-notice {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      background: rgba(62, 248, 154, 0.05);
+      border: 1px solid rgba(62, 248, 154, 0.2);
+      border-radius: var(--radius-md);
+    }
+
+    .privacy-notice-icon {
+      font-size: 18px;
+    }
+
+    .privacy-notice-text {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .privacy-notice-text strong {
+      color: var(--text-main);
+    }
+
+    html.theme-light .privacy-notice {
+      background: rgba(16, 185, 129, 0.05);
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.12s;
+    }
+
+    .github-link:hover {
+      color: var(--accent);
+    }
+
     .settings-btn {
       display: inline-flex;
       align-items: center;
@@ -2098,6 +2159,9 @@
           <button class="trash-btn" id="trashBtn">🗑️ Trash <span class="trash-btn-count" id="trashCount">0</span></button>
           <button class="shortcuts-link" id="shortcutsBtn">⌨️ Shortcuts</button>
         </div>
+        <div class="privacy-hint">
+          🔒 Data stored locally · <a href="https://github.com/timyoung2333/geekboard" target="_blank">⭐ Star on GitHub</a>
+        </div>
       </div>
     </aside>
 
@@ -2313,6 +2377,24 @@
               <div class="settings-option-desc">Restore default panel sizes</div>
             </div>
             <button class="btn" id="resetLayoutBtn" style="font-size: 11px; padding: 4px 10px;">Reset</button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <div class="settings-section-title">Privacy</div>
+          <div class="privacy-notice">
+            <div class="privacy-notice-icon">🔒</div>
+            <div class="privacy-notice-text">
+              <strong>Your data stays on your device</strong><br>
+              All projects and tasks are stored in your browser's localStorage. Nothing is sent to any server. We cannot see or access your data.
+            </div>
+          </div>
+        </div>
+        <div class="settings-section" style="border-top: 1px solid var(--border); padding-top: 12px;">
+          <a href="https://github.com/timyoung2333/geekboard" target="_blank" class="github-link">
+            ⭐ Star on GitHub
+          </a>
+          <div style="font-size: 10px; color: var(--text-dim); margin-top: 4px;">
+            Open source · View code · Report issues
           </div>
         </div>
       </div>

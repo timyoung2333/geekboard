@@ -50,7 +50,7 @@ We'd love to hear from you! Share your thoughts, suggestions, or bug reports:
 
 You can also find the **💬 Feedback** button in the bottom-left corner of the app:
 
-![Feedback Button](assets/feedback-button.png)
+![Feedback Button](assets/feedback.jpg)
 
 ## License
 

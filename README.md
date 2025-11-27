@@ -42,6 +42,16 @@ GeekBoard uses your browser's `localStorage` to save your projects.
 
 You can verify this by checking the source code or inspecting the Network tab in your browser dev tools.
 
+## Feedback
+
+We'd love to hear from you! Share your thoughts, suggestions, or bug reports:
+
+📝 **[Submit Feedback via Google Form](https://forms.gle/DTEVkkHz5TfGwKbEA)**
+
+You can also find the **💬 Feedback** button in the bottom-left corner of the app:
+
+![Feedback Button](assets/feedback-button.png)
+
 ## License
 
 MIT License.

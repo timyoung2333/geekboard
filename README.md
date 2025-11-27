@@ -24,8 +24,7 @@ Most project management tools are bloated, slow, and store your data on remote s
 
 ## How to Use
 
-### Live Demo
-Visit the live version here: [https://geekboard.app](https://geekboard.app)
+Visit here: [https://geekboard.app](https://geekboard.app)
 
 ### Run Locally
 1.  Clone the repository:

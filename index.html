@@ -741,6 +741,53 @@
       border-color: rgba(16, 185, 129, 0.2);
     }
 
+    .verify-section {
+      margin-top: 12px;
+    }
+
+    .verify-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .verify-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .verify-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 10px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .verify-step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      background: rgba(62, 248, 154, 0.15);
+      color: var(--accent);
+      border-radius: 50%;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    html.theme-light .verify-step-num {
+      background: rgba(16, 185, 129, 0.15);
+    }
+
+    .verify-step strong {
+      color: var(--text-main);
+    }
+
     .github-link {
       display: inline-flex;
       align-items: center;
@@ -2386,6 +2433,23 @@
             <div class="privacy-notice-text">
               <strong>Your data stays on your device</strong><br>
               All projects and tasks are stored in your browser's localStorage. Nothing is sent to any server. We cannot see or access your data.
+            </div>
+          </div>
+          <div class="verify-section">
+            <div class="verify-title">💡 Verify it yourself:</div>
+            <div class="verify-steps">
+              <div class="verify-step">
+                <span class="verify-step-num">1</span>
+                <span><strong>Offline test:</strong> Turn off WiFi → Refresh page → Still works!</span>
+              </div>
+              <div class="verify-step">
+                <span class="verify-step-num">2</span>
+                <span><strong>Network check:</strong> Press F12 → Network tab → Use the app → No requests sent</span>
+              </div>
+              <div class="verify-step">
+                <span class="verify-step-num">3</span>
+                <span><strong>See your data:</strong> Press F12 → Application → Local Storage → All data is there</span>
+              </div>
             </div>
           </div>
         </div>

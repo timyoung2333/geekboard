@@ -19,7 +19,7 @@ Most project management tools are bloated, slow, and store your data on remote s
 
 -   ✅ **Kanban Board**: Organize tasks by status (Todo, In Progress, Done).
 -   ✅ **Multiple Projects**: Manage different contexts in one place.
--   ✅ **Dark Mode**: A neon-inspired dark theme for late-night coding sessions.
+-   ✅ **Dark & Light Mode**: Switch between themes to suit your preference.
 -   ✅ **Zero Setup**: No login, no database, no installation required.
 
 ## How to Use

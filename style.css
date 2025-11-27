@@ -365,16 +365,11 @@ body::before {
 }
 
 .logo-badge {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 1px solid var(--accent);
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  color: var(--accent);
-  box-shadow: var(--shadow-neon);
 }
 
 .sidebar-section-title {
